@@ -1,2 +1,2 @@
-res://VehicleBody/main_3d.tscn
-res://VehicleBody/VehiclePlayer.gd
+res://Universal/large_flat_platform_3d.tscn
+res://random_script_writing.gd
