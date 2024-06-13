@@ -1,2 +1,11 @@
+res://ProceduralAnimation/main_3d.tscn
+res://Universal/first_person_player_3d.tscn
+res://Universal/first_person_player_3d.gd
+res://ProceduralAnimation/main_3d.VoxelGI_data.res
+res://Universal/camera_attributes_practical.tres
+res://Universal/world_environment_3d.tscn
+res://Universal/small_flat_platform_3d.tscn
 res://Universal/large_flat_platform_3d.tscn
-res://random_script_writing.gd
+res://ProceduralAnimation/procedural_character.tscn
+res://Universal/environment.tres
+res://ProceduralAnimation/Head.gd

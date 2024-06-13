@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://32xha7p7yq00"]
+
+[ext_resource type="Script" path="res://ProceduralAnimation/Head.gd" id="1_5swy0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_done4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojfjm"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rw081"]
+material = SubResource("StandardMaterial3D_ojfjm")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kogqd"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_aftgf"]
+
+[node name="ProceduralCharacter" type="Node3D"]
+
+[node name="Head" type="CharacterBody3D" parent="."]
+motion_mode = 1
+script = ExtResource("1_5swy0")
+
+[node name="Mesh" type="MeshInstance3D" parent="Head"]
+mesh = SubResource("SphereMesh_done4")
+
+[node name="RightEye" type="MeshInstance3D" parent="Head/Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.297, 0.403)
+mesh = SubResource("SphereMesh_rw081")
+skeleton = NodePath("../..")
+
+[node name="LeftEye" type="MeshInstance3D" parent="Head/Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.297, 0.403)
+mesh = SubResource("SphereMesh_rw081")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Head"]
+shape = SubResource("SphereShape3D_kogqd")
+
+[node name="FloorDetector" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="FrontFloor" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.164223, 0.471368)
+target_position = Vector3(0, -1.54, 2.35)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+visible = false
+shape = SubResource("SeparationRayShape3D_aftgf")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://qht2nt8j6nvv"]
+
+[ext_resource type="PackedScene" uid="uid://c4eopwjxan3rq" path="res://Universal/first_person_player_3d.tscn" id="2_3o13i"]
+[ext_resource type="CameraAttributesPractical" uid="uid://cm1v4i5wew5ad" path="res://Universal/camera_attributes_practical.tres" id="2_oi7h6"]
+[ext_resource type="VoxelGIData" uid="uid://j1544xo5un5k" path="res://ProceduralAnimation/main_3d.VoxelGI_data.res" id="3_3ntua"]
+[ext_resource type="PackedScene" uid="uid://kjvndua6o3iq" path="res://Universal/small_flat_platform_3d.tscn" id="4_1st6j"]
+[ext_resource type="PackedScene" uid="uid://dkm7hdxkf7b0l" path="res://Universal/world_environment_3d.tscn" id="4_fp2kq"]
+[ext_resource type="PackedScene" uid="uid://32xha7p7yq00" path="res://ProceduralAnimation/procedural_character.tscn" id="6_cufmt"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.958944, 0.011615, -0.283359, 0.179342, 0.74917, 0.637637, 0.21969, -0.662276, 0.716329, -9.66647, 19.1523, 6.67179)
+light_energy = 0.7
+
+[node name="FirstPersonPlayer3D" parent="." instance=ExtResource("2_3o13i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="VoxelGI" type="VoxelGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8094, 0, 1.25244)
+size = Vector3(79, 52.1521, 56)
+camera_attributes = ExtResource("2_oi7h6")
+data = ExtResource("3_3ntua")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("4_fp2kq")]
+
+[node name="SmallFlatPlatform" parent="." instance=ExtResource("4_1st6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4381, -2.08932, -0.0580573)
+
+[node name="SmallFlatPlatform2" parent="." instance=ExtResource("4_1st6j")]
+transform = Transform3D(1.83882, 0.839742, 0, -0.839742, 1.83882, 0, 0, 0, 2.02149, -7.53247, 0, -0.115326)
+
+[node name="SmallFlatPlatform3" parent="." instance=ExtResource("4_1st6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2496, -3.04519, 8.2184)
+
+[node name="SmallFlatPlatform4" parent="." instance=ExtResource("4_1st6j")]
+transform = Transform3D(1, 0, 0, 0, 0.995747, -0.0921273, 0, 0.0921273, 0.995747, 11.0152, -2.7504, -8.99702)
+
+[node name="SmallFlatPlatform5" parent="." instance=ExtResource("4_1st6j")]
+transform = Transform3D(5.10236, -1.42883, 0, 1.42883, 5.10236, 0, 0, 0, 5.29865, 19.9569, -4.8562, 1.02744)
+
+[node name="ProceduralCharacter" parent="." instance=ExtResource("6_cufmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145954, 0, -3)
