@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://32xha7p7yq00"]
+[gd_scene load_steps=11 format=3 uid="uid://32xha7p7yq00"]
 
 [ext_resource type="Script" path="res://ProceduralAnimation/Head.gd" id="1_5swy0"]
 
@@ -13,6 +13,22 @@ radius = 0.05
 height = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kogqd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64ixq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_103n7"]
+material = SubResource("StandardMaterial3D_64ixq")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0txm0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bd4md"]
+material = SubResource("StandardMaterial3D_0txm0")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 5.5
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_aftgf"]
 
@@ -42,9 +58,19 @@ shape = SubResource("SphereShape3D_kogqd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 target_position = Vector3(0, -0.5, 0)
 
+[node name="RayDisplay" type="MeshInstance3D" parent="Head/FloorDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.248144, 0)
+mesh = SubResource("CylinderMesh_103n7")
+skeleton = NodePath("../../..")
+
 [node name="FrontFloor" type="RayCast3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.164223, 0.471368)
-target_position = Vector3(0, -1.54, 2.35)
+transform = Transform3D(1, 0, 0, 0, 0.948429, 0.31699, 0, -0.31699, 0.948429, 0, -0.164223, 0.471368)
+target_position = Vector3(0, -3.01, 4.26)
+
+[node name="RayDisplay" type="MeshInstance3D" parent="Head/FrontFloor"]
+transform = Transform3D(1, 0, 0, 0, 0.586881, 0.809673, 0, -0.809673, 0.586881, 1.19209e-07, -1.41862, 2.07458)
+mesh = SubResource("CylinderMesh_bd4md")
+skeleton = NodePath("../../..")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 visible = false
