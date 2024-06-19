@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ndhopp0jd73"]
+
+[ext_resource type="PackedScene" uid="uid://cmlaqj0mjtfu3" path="res://Saving/player.tscn" id="1_q7d3o"]
+[ext_resource type="PackedScene" uid="uid://bk8m1tms6p0je" path="res://Universal/small_flat_platform_2d.tscn" id="2_xptho"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_q7d3o")]
+
+[node name="SmallFlatPlatform2D" parent="." instance=ExtResource("2_xptho")]
+position = Vector2(0, 81)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+position = Vector2(268.695, 253.16)
+zoom = Vector2(3.5, 3.5)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport2" type="SubViewport" parent="CanvasLayer/SubViewportContainer2"]
+
+[node name="Camera" type="Camera2D" parent="CanvasLayer/SubViewportContainer2/SubViewport2"]
+position_smoothing_enabled = true

@@ -1,9 +1,6 @@
 res://Universal/environment.tres
-res://ProceduralAnimation/procedural_character.tscn
 res://Universal/camera_attributes_practical.tres
-res://ProceduralAnimation/main_3d.tscn
-res://Universal/first_person_player_3d.tscn
-res://Universal/world_environment_3d.tscn
-res://Universal/small_flat_platform_3d.tscn
-res://Universal/large_flat_platform_3d.tscn
-res://ProceduralAnimation/Head.gd
+res://Saving/Main.tscn
+res://Saving/player.tscn
+res://Universal/small_flat_platform_2d.tscn
+res://Saving/player.gd
