@@ -1,13 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://c283u17axnmod"]
+[gd_scene load_steps=8 format=3 uid="uid://c283u17axnmod"]
 
 [ext_resource type="Shader" path="res://InterestingMaterials/2D_materials.gdshader" id="1_0d5op"]
 [ext_resource type="Texture2D" uid="uid://ccys50rpu7hja" path="res://icon.svg" id="1_pdxoe"]
 
+[sub_resource type="Gradient" id="Gradient_1ibkn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bpm86"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hs325"]
+color_ramp = SubResource("Gradient_1ibkn")
+noise = SubResource("FastNoiseLite_bpm86")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p8het"]
 shader = ExtResource("1_0d5op")
+shader_parameter/dissolve_value = 0.368
+shader_parameter/burn_size = 0.07
+shader_parameter/burn_color = null
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_hs325")
+
+[sub_resource type="GDScript" id="GDScript_r6y0a"]
+script/source = "extends Sprite2D
+
+
+var time_passed = 0
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	time_passed += delta
+	material.set_shader_parameter(\"dissolve_value\", sin(time_passed) / 2 + 0.5)
+"
 
 [node name="2dMaterials" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_p8het")
+position = Vector2(528, 312)
+scale = Vector2(3.25781, 3.25781)
 texture = ExtResource("1_pdxoe")
+script = SubResource("GDScript_r6y0a")
