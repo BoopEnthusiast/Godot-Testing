@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4eopwjxan3rq"]
 
-[ext_resource type="Script" path="res://Universal/first_person_player_3d.gd" id="1_nusua"]
+[ext_resource type="Script" uid="uid://dpo1177v1swjf" path="res://Universal/first_person_player_3d.gd" id="1_nusua"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0n4k0"]
 

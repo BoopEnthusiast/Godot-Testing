@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://cql3wjqrjqpyl"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uy7vy"]
+size = Vector2(30, 30)
+
+[sub_resource type="GDScript" id="GDScript_yxrrp"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	rotate(delta * PI)
+"
+
+[sub_resource type="GDScript" id="GDScript_nyrbr"]
+script/source = "extends Line2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	points[1] = get_parent().target_position
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_mhmj7"]
+
+[sub_resource type="GDScript" id="GDScript_sxhbo"]
+script/source = "extends MeshInstance3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	rotate_z(delta * PI)
+"
+
+[node name="Temp" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(541.25, 239.75)
+texture = SubResource("PlaceholderTexture2D_uy7vy")
+script = SubResource("GDScript_yxrrp")
+
+[node name="RayCast2D" type="RayCast2D" parent="Node2D/Sprite2D"]
+target_position = Vector2(93.75, 59.25)
+
+[node name="Line2D" type="Line2D" parent="Node2D/Sprite2D/RayCast2D"]
+points = PackedVector2Array(0, 0, 0, 0)
+script = SubResource("GDScript_nyrbr")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.08973)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(0.309789, -0.897636, 0.313498, -0.377588, 0.186459, 0.907006, -0.872616, -0.399354, -0.281173, 2.31491, 1.8947, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_mhmj7")
+script = SubResource("GDScript_sxhbo")
+
+[node name="RayCast3D" type="RayCast3D" parent="Node3D/MeshInstance3D"]
+target_position = Vector3(-2.52, 0.69, 0)
+debug_shape_custom_color = Color(0.911012, 0.000160372, 0.764886, 1)

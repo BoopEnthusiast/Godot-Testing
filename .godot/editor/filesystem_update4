@@ -1,3 +1,7 @@
 res://Universal/environment.tres
-res://InterestingMaterials/2D_materials.tscn
+res://Basic3DScene/basic_3d_scene.tscn
 res://InterestingMaterials/2D_materials.gdshader
+res://Basic3DScene/player.gd
+res://CameraAlongPath/main.tscn
+res://temp.tscn
+res://CodeTest/main.tscn

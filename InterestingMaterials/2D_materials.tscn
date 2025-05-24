@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c283u17axnmod"]
 
-[ext_resource type="Shader" path="res://InterestingMaterials/2D_materials.gdshader" id="1_0d5op"]
+[ext_resource type="Shader" uid="uid://cb5s08imm44eg" path="res://InterestingMaterials/2D_materials.gdshader" id="1_0d5op"]
 [ext_resource type="Texture2D" uid="uid://ccys50rpu7hja" path="res://icon.svg" id="1_pdxoe"]
 
 [sub_resource type="Gradient" id="Gradient_1ibkn"]
@@ -13,10 +13,10 @@ noise = SubResource("FastNoiseLite_bpm86")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p8het"]
 shader = ExtResource("1_0d5op")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_hs325")
 shader_parameter/dissolve_value = 0.368
 shader_parameter/burn_size = 0.07
-shader_parameter/burn_color = null
-shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_hs325")
+shader_parameter/burn_color = Color(0, 0, 0, 1)
 
 [sub_resource type="GDScript" id="GDScript_r6y0a"]
 script/source = "extends Sprite2D

@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqh0uv6n7fv15"]
+
+[ext_resource type="Texture2D" uid="uid://ccys50rpu7hja" path="res://icon.svg" id="1_2s1eb"]
+
+[sub_resource type="Curve2D" id="Curve2D_punmp"]
+_data = {
+"points": PackedVector2Array(58.733, -198.891, -58.733, 198.891, -22, 122, -154.841, 319.027, 154.841, -319.027, 112, 524, 481.877, 376.425, -481.877, -376.425, 464, 977, -245.611, 266.968, 245.611, -266.968, 1140, 818, 391.108, -225.588, -391.108, 225.588, 1254, 313, 0, 0, 0, 0, 895, -19, 0, 0, 0, 0, 833, 682, 125.475, 46.7194, -125.475, -46.7194, 446, 16, 82.7601, -234.932, -82.7601, 234.932, -22, 122)
+}
+point_count = 9
+
+[sub_resource type="Animation" id="Animation_af8q2"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_j33b0"]
+resource_name = "move"
+length = 6.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dibj7"]
+_data = {
+&"RESET": SubResource("Animation_af8q2"),
+&"move": SubResource("Animation_j33b0")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(399, 277)
+texture = ExtResource("1_2s1eb")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(618, 823)
+texture = ExtResource("1_2s1eb")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(851, 179)
+texture = ExtResource("1_2s1eb")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_punmp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-22, 122)
+rotation = 1.85794
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dibj7")
+}
+autoplay = "move"

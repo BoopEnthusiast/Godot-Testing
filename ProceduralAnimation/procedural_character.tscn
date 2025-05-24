@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://32xha7p7yq00"]
 
-[ext_resource type="Script" path="res://ProceduralAnimation/Head.gd" id="1_5swy0"]
+[ext_resource type="Script" uid="uid://clkfv0eeii68f" path="res://ProceduralAnimation/Head.gd" id="1_5swy0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_done4"]
 

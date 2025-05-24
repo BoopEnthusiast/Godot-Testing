@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://jaqk0v1cax6s"]
 
 [ext_resource type="PackedScene" uid="uid://53kqet64qich" path="res://Universal/large_flat_platform_3d.tscn" id="1_jmeus"]
-[ext_resource type="Script" path="res://VehicleBody/VehiclePlayer.gd" id="2_kg5r1"]
+[ext_resource type="Script" uid="uid://bfk5d2if8dx7r" path="res://VehicleBody/VehiclePlayer.gd" id="2_kg5r1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpkgn"]
 albedo_color = Color(1, 0.321569, 1, 1)
